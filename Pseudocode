@@ -1,0 +1,27 @@
+Welcome to Fitness tracker :)
+ Press j to start your first workout.
+ press v to view past records.
+
+
+j{
+
+Please type in what excercises youre going to do:
+squat
+how many reps:
+how many sets:
+how much weight:
+
+would you like to add another excercise? (y/n):n
+
+}
+
+v{
+What day would you like to view (pick the number next to the date ex. 1)?
+apr 18 2018 #1
+
+:1
+Excercise		weight	sets	reps	total
+squat			0	0	0	0
+
+would you like to view another day? (y/n):
+}
