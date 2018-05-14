@@ -36,14 +36,34 @@ void Excercises::printInfo()
 }
 
 int main()
-{	
+{
 	vector<Excercises> v;
 	bool acceptInput = true;
 	string name;
 	int reps;
 	int sets;
 	int weight;
-	while (acceptInput == true)
+
+	char userDecision; //User navigation through the menu
+    bool runProgram = true; //Main Program loop
+
+
+	cout << "----------Welcome to YourFitnessPal!----------\n\n";
+
+	 while (runProgram == true){
+
+        cout << "\n*Would you like to log your workout or view a previous workout?* \n\n";
+        cout << "1.  Log a new workout\n";
+        cout << "2.  View a previous workout\n";
+        cout << "3.  Quit YourFitnessPal\n\n";
+
+        cout << "Enter the corresponding number: ";
+        cin >> userDecision;
+        cout << endl;
+
+        if (userDecision == '1'){
+            cout << "----------Exercise Input----------\n\n";
+            while (acceptInput == true)
 	{
 		cout << "Please enter the name of your workout: " ;
 		cin >> ws;
@@ -56,7 +76,7 @@ int main()
 		cin >> weight;
 		Excercises E(name, reps, sets, weight);
 		v.push_back(E);
-		
+
 		cout << "\nWould you like to do another excercise? (y for yes, n for no): ";
 		string z;
 		cin >> z;
@@ -66,11 +86,26 @@ int main()
 			acceptInput = false;
 		}
 	}
-	
-	for (int i = 0; i < v.size(); i++)
-	{
-		v[i].printInfo();
-	}
+        }
+
+        else if (userDecision == '2'){
+            cout << "--------View a Previous Workout--------\n";
+            for (int i = 0; i < v.size(); i++)
+                {
+                    v[i].printInfo();
+                }
+
+        }
+
+        else
+            runProgram = false;
+    }
+
+    cout << "Thank you for using YourFitnessPal";
+
+
+
+
+
     return 0;
 }
-
