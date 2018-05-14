@@ -1,6 +1,5 @@
 // groupProjectPrototyping.cpp : Defines the entry point for the console application.
 
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -43,29 +42,62 @@ int main()
 	int reps;
 	int sets;
 	int weight;
-	while (acceptInput == true)
+
+    char userDecision; //User navigation through the menu
+    bool runProgram = true; //Main Program loop
+	
+    cout << "----------Welcome to GainzTracker!----------\n\n";
+    while (runProgram == true)
 	{
-		cout << "Please enter the name of your workout: " ;
-		cin >> ws;
-		getline(cin, name);
-		cout << "\nPlease enter the number of reps you will be doing: ";
-		cin >> reps;
-		cout << "\nPlease enter the number of sets you will be preforming: ";
-		cin >> sets;
-		cout << "\nPlease enter the weight you will be lifting: ";
-		cin >> weight;
-		Excercises E(name, reps, sets, weight);
-		v.push_back(E);
-		
-		cout << "\nWould you like to do another excercise? (y for yes, n for no): ";
-		string z;
-		cin >> z;
-		cout << endl;
-		if (z == "n")
+        cout << "*Would you like to log your workout or view a previous workout?* \n\n";
+        cout << "1.  Log a new workout\n";
+        cout << "2.  View a previous workout\n";
+        cout << "3.  Quit GainzTracker\n\n";
+
+        cout << "Enter the corresponding number: ";
+        cin >> userDecision;
+        cout << endl;
+
+        if (userDecision == '1')
 		{
-			acceptInput = false;
-		}
-	}
+            cout << "----------Exercise Input----------\n\n";
+			while (acceptInput == true)
+			{
+				cout << "Please enter the name of your workout: " ;
+				cin >> ws;	//This removes the white space when inputing two word i.e. bench press
+				getline(cin, name);
+				cout << "\nPlease enter the number of reps you will be doing: ";
+				cin >> reps;
+				cout << "\nPlease enter the number of sets you will be preforming: ";
+				cin >> sets;
+				cout << "\nPlease enter the weight you will be lifting: ";
+				cin >> weight;
+				Excercises E(name, reps, sets, weight);
+				v.push_back(E);
+		
+				cout << "\nWould you like to do another excercise? (y for yes, n for no): ";
+				string z;
+				cin >> z;
+				cout << "----------------------------------" << endl;
+				if (z == "n")
+				{
+					acceptInput = false;
+				}
+			}
+        }
+        else if (userDecision == '2')
+		{
+            cout << "--------View a Previous Workout--------\n";
+            //dailyLogs[x][y].printInfo();
+			//This is not needed yet
+        }
+        else
+            runProgram = false;
+    }
+    cout << "----------Thank you for using GainzTracker!----------";
+	
+	
+	
 	
 	for (int i = 0; i < v.size(); i++)
 	{
@@ -73,4 +105,3 @@ int main()
 	}
     return 0;
 }
-
