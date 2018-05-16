@@ -125,10 +125,12 @@ int main()
 				}
 
 			}
-			ofstream endWorkout;
+			if (runProgram == false){
+            ofstream endWorkout;
             endWorkout.open("savedata.txt", std::ios_base::app);
             endWorkout << "!" << endl;
-            endWorkout.close();
+            endWorkout.close();}
+
 			runProgram = true;
 			break;
 
